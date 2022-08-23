@@ -994,16 +994,6 @@ video {
   outline-color: #e5e7eb;
 }
 
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.duration-200 {
-  transition-duration: 200ms;
-}
-
 @-webkit-keyframes pulse {
   50% {
     opacity: .5;
