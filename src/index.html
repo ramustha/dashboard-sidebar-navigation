@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Sidebar Navigation</title>
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+  <header class="w-full py-2 border-b-2">
+    <div class="flex justify-between px-2">
+      <div class="flex items-center space-x-2 relative" x-data="{ open: false }">
+        <button class="hover:animate-pulse hover:bg-blue-100 opacity-90" @click="open = ! open">
+          <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+            <path fill="currentColor" fill-rule="evenodd"
+              d="M4 5.01C4 4.451 4.443 4 5.01 4h1.98C7.549 4 8 4.443 8 5.01v1.98C8 7.549 7.557 8 6.99 8H5.01C4.451 8 4 7.557 4 6.99V5.01zm0 6c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98C8 13.549 7.557 14 6.99 14H5.01C4.451 14 4 13.557 4 12.99v-1.98zm6-6c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98C14 7.549 13.557 8 12.99 8h-1.98C10.451 8 10 7.557 10 6.99V5.01zm0 6c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98c0 .558-.443 1.01-1.01 1.01h-1.98c-.558 0-1.01-.443-1.01-1.01v-1.98zm6-6c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98C20 7.549 19.557 8 18.99 8h-1.98C16.451 8 16 7.557 16 6.99V5.01zm0 6c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98c0 .558-.443 1.01-1.01 1.01h-1.98c-.558 0-1.01-.443-1.01-1.01v-1.98zm-12 6c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98C8 19.549 7.557 20 6.99 20H5.01C4.451 20 4 19.557 4 18.99v-1.98zm6 0c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98c0 .558-.443 1.01-1.01 1.01h-1.98c-.558 0-1.01-.443-1.01-1.01v-1.98zm6 0c0-.558.443-1.01 1.01-1.01h1.98c.558 0 1.01.443 1.01 1.01v1.98c0 .558-.443 1.01-1.01 1.01h-1.98c-.558 0-1.01-.443-1.01-1.01v-1.98z">
+            </path>
+          </svg>
+        </button>
+        <div class="font-bold text-lg">DSN</div>
+        <div class="flex flex-row items-center px-2">
+          <div class="pl-2 hover:bg-blue-200 group hidden sm:block relative"
+            x-data="{ open: false}">
+            <button class="flex flex-row items-center text-xs font-semibold" " @click=" open=!
+              open">
+              <p class="group-hover:text-blue-800">Your Work</p>
+              <span class="rotate-90 flex items-center group-hover:text-blue-800">
+                <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                  <path
+                    d="M10.294 9.698a.988.988 0 010-1.407 1.01 1.01 0 011.419 0l2.965 2.94a1.09 1.09 0 010 1.548l-2.955 2.93a1.01 1.01 0 01-1.42 0 .988.988 0 010-1.407l2.318-2.297-2.327-2.307z"
+                    fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </span>
+            </button>
+            <div x-show="open"
+              class="min-w-[320px] min-h-fit absolute bg-white shadow-lg outline outline-1 outline-gray-200 top-8 z-[99] left-0">
+              <div class="flex flex-row p-2 space-x-4 relative">
+                <a href="#"
+                  class="text-xs font-semibold hover:text-blue-600 border-b-2 border-blue-600">Assigned
+                  to
+                  me</a>
+                <a href="#"
+                  class="text-xs font-semibold hover:text-blue-600 hover:border-b-2 hover:border-blue-600">Recent</a>
+                <a href="#"
+                  class="text-xs font-semibold hover:text-blue-600 hover:border-b-2 hover:border-blue-600">Board</a>
+              </div>
+              <div class="min-w-full bg-gray-200 h-[1px]"></div>
+              <p class="pt-2 px-2 text-tiny font-bold text-gray-600">Open</p>
+              <a href="#"
+                class="flex items-center p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+                <span>
+                  <img class="sc-1c3xoxx-0 fzPDOR"
+                    src="https://gdncomm.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium">
+                </span>
+                <div class="px-2">
+                  <p class="text-tiny font-semibold">Implement toggle mechanism 1</p>
+                  <p class="text-tiny text-gray-900">PCT-2001 . Project description</p>
+                </div>
+              </a>
+              <a href="#"
+                class="flex items-center p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+                <span>
+                  <img class="sc-1c3xoxx-0 fzPDOR"
+                    src="https://gdncomm.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium">
+                </span>
+                <div class="px-2">
+                  <p class="text-tiny font-semibold">Implement toggle mechanism 2</p>
+                  <p class="text-tiny text-gray-900">PCT-2002 . Project description</p>
+                </div>
+              </a>
+              <a href="#"
+                class="flex items-center p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+                <span>
+                  <img class="sc-1c3xoxx-0 fzPDOR"
+                    src="https://gdncomm.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium">
+                </span>
+                <div class="px-2">
+                  <p class="text-tiny font-semibold">Implement toggle mechanism 3</p>
+                  <p class="text-tiny text-gray-900">PCT-2003 . Project description</p>
+                </div>
+              </a>
+              <a href="#"
+                class="flex items-center p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+                <span>
+                  <img class="sc-1c3xoxx-0 fzPDOR"
+                    src="https://gdncomm.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium">
+                </span>
+                <div class="px-2">
+                  <p class="text-tiny font-semibold">Implement toggle mechanism 4</p>
+                  <p class="text-tiny text-gray-900">PCT-2004 . Project description</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="pl-2 hover:bg-blue-200 group hidden sm:block">
+            <button class="flex flex-row items-center text-xs font-semibold">
+              <p class="group-hover:text-blue-800">Project</p>
+              <span class="rotate-90 flex items-center group-hover:text-blue-800">
+                <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                  <path
+                    d="M10.294 9.698a.988.988 0 010-1.407 1.01 1.01 0 011.419 0l2.965 2.94a1.09 1.09 0 010 1.548l-2.955 2.93a1.01 1.01 0 01-1.42 0 .988.988 0 010-1.407l2.318-2.297-2.327-2.307z"
+                    fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div class="pl-2 hover:bg-blue-200 group hidden sm:block">
+            <button class="flex flex-row items-center text-xs font-semibold">
+              <p class="group-hover:text-blue-800">Filters</p>
+              <span class="rotate-90 flex items-center group-hover:text-blue-800">
+                <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                  <path
+                    d="M10.294 9.698a.988.988 0 010-1.407 1.01 1.01 0 011.419 0l2.965 2.94a1.09 1.09 0 010 1.548l-2.955 2.93a1.01 1.01 0 01-1.42 0 .988.988 0 010-1.407l2.318-2.297-2.327-2.307z"
+                    fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div x-show="open"
+          class="min-w-[320px] min-h-fit absolute bg-white shadow-lg outline outline-1 outline-gray-200 top-8 z-[99]">
+          <div class="flex flex-col">
+            <div class="flex justify-between p-2">
+              <h1 class="text-xs font-semibold items-center">Switch to</h1>
+              <a href="#"
+                class="text-xs font-semibold flex items-center gap-1 text-blue-600 hover:underline">Atlassian
+                Start
+                <span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" role="presentation" class="w-3">
+                    <g fill="currentColor">
+                      <path
+                        d="M19.005 19c-.003 0-.005.002-.005.002l.005-.002zM5 19.006c0-.004-.002-.006-.005-.006H5v.006zM5 4.994V5v-.006zM19 19v-6h2v6.002A1.996 1.996 0 0119.005 21H4.995A1.996 1.996 0 013 19.006V4.994C3 3.893 3.896 3 4.997 3H11v2H5v14h14zM5 4.994V5v-.006zm0 14.012c0-.004-.002-.006-.005-.006H5v.006zM11 5H5v14h14v-6h2v6.002A1.996 1.996 0 0119.005 21H4.995A1.996 1.996 0 013 19.006V4.994C3 3.893 3.896 3 4.997 3H11v2zm8 0v3a1 1 0 002 0V4a1 1 0 00-1-1h-4a1 1 0 000 2h3z">
+                      </path>
+                      <path d="M12.707 12.707l8-8a1 1 0 10-1.414-1.414l-8 8a1 1 0 001.414 1.414z">
+                      </path>
+                    </g>
+                  </svg>
+                </span>
+              </a>
+            </div>
+            <a href="#"
+              class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+              <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+              <span class="bg-blue-600">
+                <img
+                  src="https://fd-assets.prod.atl-paas.net/image/logos/contrib/jira-software/icons/white.svg"
+                  class="css-9uy14h">
+              </span>
+              <span class="text-sm">Jira Software</span>
+            </a>
+            <a href="#"
+              class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+              <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+              <span class="bg-blue-600">
+                <img
+                  src="https://fd-assets.prod.atl-paas.net/image/logos/contrib/jira-work-management/icons/white.svg"
+                  class="css-9uy14h">
+              </span>
+              <span class="text-sm">Jira Work Management</span>
+            </a>
+            <a href="#"
+              class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+              <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+              <span class="bg-blue-600">
+                <img
+                  src="https://fd-assets.prod.atl-paas.net/image/logos/contrib/bitbucket/icons/white.svg"
+                  class="css-9uy14h">
+              </span>
+              <span class="text-sm">Bitbucket</span>
+            </a>
+            <a href="#"
+              class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+              <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+              <span class="bg-blue-600">
+                <img
+                  src="https://fd-assets.prod.atl-paas.net/image/logos/contrib/trello/icons/white.svg"
+                  class="css-9uy14h">
+              </span>
+              <span class="text-sm">Trello</span>
+            </a>
+          </div>
+          <h1 class="text-xs font-bold items-center px-5 py-2 text-gray-500 uppercase">Discover</h1>
+          <a href="#"
+            class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+            <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+            <span class="bg-gray-200 shadow-sm shadow-gray-600 rounded-lg">
+              <img
+                src="https://fd-assets.prod.atl-paas.net/image/logos/contrib/confluence/icons/blue.svg"
+                class="css-9uy14h">
+            </span>
+            <span class="flex flex-col">
+              <p class="text-xs font-normal">Confluence</p>
+              <p class="text-xs font-light">Document collaboration</p>
+            </span>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+            <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+            <span class="bg-gray-200 shadow-sm shadow-gray-600 rounded-lg">
+              <img
+                src="https://fd-assets.prod.atl-paas.net/image/logos/contrib/jira-service-management/icons/blue.svg"
+                class="css-9uy14h">
+            </span>
+            <span class="flex flex-col">
+              <p class="text-xs font-normal">Jira Service Management</p>
+              <p class="text-xs font-light">Collaborative IT service management</p>
+            </span>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+            <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+            <span class="bg-gray-200 shadow-sm shadow-gray-600 rounded-lg">
+              <img
+                src="https://fd-assets.prod.atl-paas.net/image/logos/contrib/opsgenie/icons/blue.svg"
+                class="css-9uy14h">
+            </span>
+            <span class="flex flex-col">
+              <p class="text-xs font-normal">Opsgenie</p>
+              <p class="text-xs font-light">Modern incident management</p>
+            </span>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+            <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+            <div class="bg-gray-200 flex w-8 h-8 shadow-sm shadow-gray-600 rounded-lg">
+              <img class="m-auto w-6 h-6"
+                src="data:image/svg+xml,%3Csvg width='20' height='20' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask x='0' y='0' width='20' height='20' mask-type='alpha' maskUnits='userSpaceOnUse'%3E%3Crect width='20' height='20' rx='4' fill='%23fff'/%3E%3C/mask%3E%3Cpath d='m5.6711 13.88c0 1.2622-1.0311 2.2934-2.2933 2.2934-1.2622 0-2.2933-1.0312-2.2933-2.2934s1.0311-2.2933 2.2933-2.2933c1.2666 0 2.2933 1.0267 2.2933 2.2933z' fill='%2356637A'/%3E%3Cpath d='m6.8267 13.88c0-1.2622 1.0311-2.2933 2.2933-2.2933 1.2622 0 2.2934 1.0311 2.2934 2.2933v5.7422c0 1.2622-1.0311 2.2934-2.2934 2.2934-1.2622 0-2.2933-1.0312-2.2933-2.2934v-5.7422z' fill='%2356637A'/%3E%3Cpath d='m9.12 4.6711c-1.2622 0-2.2933-1.0311-2.2933-2.2933 0-1.2622 1.0311-2.2933 2.2933-2.2933 1.2622 0 2.2934 1.0311 2.2934 2.2933 0 1.2666-1.0268 2.2933-2.2934 2.2933z' fill='%2356637A'/%3E%3Cpath d='m9.12 5.8268c1.2623 0 2.2934 1.0311 2.2934 2.2933 0 1.2622-1.0311 2.2934-2.2934 2.2934h-5.7422c-1.2622 0-2.2933-1.0312-2.2933-2.2934 0-1.2622 1.0311-2.2933 2.2933-2.2933h5.7422z' fill='%2356637A'/%3E%3Cpath d='m18.329 8.1201c0-1.2622 1.0311-2.2933 2.2934-2.2933 1.2622 0 2.2933 1.0311 2.2933 2.2933 0 1.2622-1.0311 2.2934-2.2933 2.2934-1.2666 0-2.2934-1.0268-2.2934-2.2934z' fill='%2356637A'/%3E%3Cpath d='m17.173 8.12c0 1.2622-1.0311 2.2934-2.2933 2.2934s-2.2933-1.0311-2.2933-2.2934v-5.7422c0-1.2622 1.0311-2.2933 2.2933-2.2933s2.2933 1.0311 2.2933 2.2933v5.7422z' fill='%2356637A'/%3E%3Cpath d='m14.88 17.329c1.2622 0 2.2933 1.0311 2.2933 2.2933s-1.0311 2.2933-2.2933 2.2933-2.2933-1.0311-2.2933-2.2933c0-1.2666 1.0267-2.2933 2.2933-2.2933z' fill='%2356637A'/%3E%3Cpath d='m14.88 16.173c-1.2622 0-2.2933-1.0312-2.2933-2.2934s1.0311-2.2933 2.2933-2.2933h5.7422c1.2622 0 2.2934 1.0311 2.2934 2.2933s-1.0312 2.2934-2.2934 2.2934h-5.7422z' fill='%2356637A'/%3E%3C/svg%3E"
+                alt="">
+            </div>
+            <span class="flex flex-col">
+              <p class="text-xs font-normal">Slack</p>
+              <p class="text-xs font-light">Integrate Slack with yout Atlassian products</p>
+            </span>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-2 group p-2 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+            <span class="w-[2px] h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+            <div class="bg-gray-200 flex w-8 h-8 shadow-sm shadow-gray-600 rounded-lg">
+              <svg class="m-auto w-6 h-6 opacity-60" width="24" height="24" viewBox="0 0 24 24"
+                role="presentation">
+                <path
+                  d="M12 21a9 9 0 110-18 9 9 0 010 18zm-1.101-10.78c-.248.127-.55.427-.678.678L8.24 14.797c-.55 1.084-.118 1.514.965.963l3.898-1.98c.248-.127.55-.427.677-.678l1.981-3.899c.552-1.083.12-1.514-.964-.964L10.9 10.221zM12 13a1 1 0 110-2 1 1 0 010 2z"
+                  fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="flex flex-col">
+              <p class="text-xs font-normal">More Atlassion products</p>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 relative" x-data="{ open: false }">
+        <div class="flex items-center opacity-90">
+          <input type="text" placeholder="Search"
+            class="text-sm px-6 h-auto w-32 outline outline-1 outline-gray-200 rounded-sm relative">
+          <span class="z-[999] absolute left-1">
+            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation"
+              class="opacity-20 w-4 h-4">
+              <path
+                d="M16.436 15.085l3.94 4.01a1 1 0 01-1.425 1.402l-3.938-4.006a7.5 7.5 0 111.423-1.406zM10.5 16a5.5 5.5 0 100-11 5.5 5.5 0 000 11z"
+                fill="currentColor" fill-rule="evenodd"></path>
+            </svg>
+          </span>
+          </input>
+        </div>
+        <button class="items-center rounded-full hover:bg-blue-100 relative">
+          <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+            <path
+              d="M6.485 17.669a2 2 0 002.829 0l-2.829-2.83a2 2 0 000 2.83zm4.897-12.191l-.725.725c-.782.782-2.21 1.813-3.206 2.311l-3.017 1.509c-.495.248-.584.774-.187 1.171l8.556 8.556c.398.396.922.313 1.171-.188l1.51-3.016c.494-.988 1.526-2.42 2.311-3.206l.725-.726a5.048 5.048 0 00.64-6.356 1.01 1.01 0 10-1.354-1.494c-.023.025-.046.049-.066.075a5.043 5.043 0 00-2.788-.84 5.036 5.036 0 00-3.57 1.478z"
+              fill="currentColor" fill-rule="evenodd"></path>
+          </svg>
+          <div class="w-4 h-3 bg-red-600 rounded-lg absolute top-0 right-0">
+            <div class="text-[9px] text-white font-bold text-center">
+              9+
+            </div>
+          </div>
+        </button>
+        <button class="rounded-full hover:bg-blue-100">
+          <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+            <g fill-rule="evenodd">
+              <circle fill="white" cx="12" cy="18" r="1"></circle>
+              <circle fill="currentColor" cx="12" cy="12" r="10"></circle>
+              <path
+                d="M15.89 9.05a3.975 3.975 0 00-2.957-2.942C10.321 5.514 8.017 7.446 8 9.95l.005.147a.992.992 0 00.982.904c.552 0 1-.447 1.002-.998a2.004 2.004 0 014.007-.002c0 1.102-.898 2-2.003 2H12a1 1 0 00-1 .987v2.014a1.001 1.001 0 002.004 0v-.782c0-.217.145-.399.35-.472A3.99 3.99 0 0015.89 9.05"
+                fill="white"></path>
+            </g>
+          </svg>
+        </button>
+        <button class="rounded-full hover:bg-blue-100">
+          <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+            <path
+              d="M11.701 16.7a5.002 5.002 0 110-10.003 5.002 5.002 0 010 10.004m8.368-3.117a1.995 1.995 0 01-1.346-1.885c0-.876.563-1.613 1.345-1.885a.48.48 0 00.315-.574 8.947 8.947 0 00-.836-1.993.477.477 0 00-.598-.195 2.04 2.04 0 01-1.29.08 1.988 1.988 0 01-1.404-1.395 2.04 2.04 0 01.076-1.297.478.478 0 00-.196-.597 8.98 8.98 0 00-1.975-.826.479.479 0 00-.574.314 1.995 1.995 0 01-1.885 1.346 1.994 1.994 0 01-1.884-1.345.482.482 0 00-.575-.315c-.708.2-1.379.485-2.004.842a.47.47 0 00-.198.582A2.002 2.002 0 014.445 7.06a.478.478 0 00-.595.196 8.946 8.946 0 00-.833 1.994.48.48 0 00.308.572 1.995 1.995 0 011.323 1.877c0 .867-.552 1.599-1.324 1.877a.479.479 0 00-.308.57 8.99 8.99 0 00.723 1.79.477.477 0 00.624.194c.595-.273 1.343-.264 2.104.238.117.077.225.185.302.3.527.8.512 1.58.198 2.188a.473.473 0 00.168.628 8.946 8.946 0 002.11.897.474.474 0 00.57-.313 1.995 1.995 0 011.886-1.353c.878 0 1.618.567 1.887 1.353a.475.475 0 00.57.313 8.964 8.964 0 002.084-.883.473.473 0 00.167-.631c-.318-.608-.337-1.393.191-2.195.077-.116.185-.225.302-.302.772-.511 1.527-.513 2.125-.23a.477.477 0 00.628-.19 8.925 8.925 0 00.728-1.793.478.478 0 00-.314-.573"
+              fill="currentColor" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button id="hero" @click="open = ! open"
+          class="w-6 h-6 bg-green-400 rounded-full hover:outline-blue-100 hover:outline-3 hover:outline">
+          <div class="font-bold text-[10px] text-center text-white">RM</div>
+        </button>
+        <div x-show="open"
+          class="min-w-[320px] min-h-fit absolute bg-white shadow-lg outline outline-1 outline-gray-200 top-8 z-[99] right-0">
+          <div class="flex flex-row">
+            <div class="w-full">
+              <p class="text-tiny font-semibold p-2 text-gray-600">Account</p>
+              <div class="px-4 flex items-center">
+                <button id="hero" @click="open = ! open"
+                  class="w-6 h-6 bg-green-400 rounded-full hover:outline-blue-100 hover:outline-3 hover:outline">
+                  <div class="font-bold text-[10px] text-center text-white">RM</div>
+                </button>
+                <div>
+                  <h2 class="text-sm mx-2">Ramadhani Musthofa</h2>
+                  <h3 class="text-tiny mx-2 text-gray-900">ramadhani.musthofa@gmail.com</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex justify-between items-center p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">
+            <p class="text-tiny font-semibold text-gray-600">Manage account</p>
+            <span>
+              <svg width="24" height="24" viewBox="0 0 24 24" role="presentation" class="w-3 h-3">
+                <g fill="currentColor">
+                  <path
+                    d="M19.005 19c-.003 0-.005.002-.005.002l.005-.002zM5 19.006c0-.004-.002-.006-.005-.006H5v.006zM5 4.994V5v-.006zM19 19v-6h2v6.002A1.996 1.996 0 0119.005 21H4.995A1.996 1.996 0 013 19.006V4.994C3 3.893 3.896 3 4.997 3H11v2H5v14h14zM5 4.994V5v-.006zm0 14.012c0-.004-.002-.006-.005-.006H5v.006zM11 5H5v14h14v-6h2v6.002A1.996 1.996 0 0119.005 21H4.995A1.996 1.996 0 013 19.006V4.994C3 3.893 3.896 3 4.997 3H11v2zm8 0v3a1 1 0 002 0V4a1 1 0 00-1-1h-4a1 1 0 000 2h3z">
+                  </path>
+                  <path d="M12.707 12.707l8-8a1 1 0 10-1.414-1.414l-8 8a1 1 0 001.414 1.414z">
+                  </path>
+                </g>
+              </svg>
+            </span>
+          </div>
+          <div class="min-w-full bg-gray-200 h-[1px]"></div>
+          <div class="flex flex-col w-full">
+            <a href="#"
+              class="w-full p-2 text-tiny text-gray-600 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">Open
+              Quickstart</a>
+            <a href="#"
+              class="w-full p-2 text-tiny text-gray-600 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">JIRA</a>
+            <a href="#"
+              class="w-full p-2 text-tiny text-gray-600 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">Profile</a>
+            <a href="#"
+              class="w-full p-2 text-tiny text-gray-600 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">Personal
+              settings</a>
+            <a href="#"
+              class="w-ful p-2 text-tiny text-gray-600 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">Quantify
+              - My Work</a>
+            <a href="#"
+              class="w-full p-2 text-tiny  text-gray-600 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">Slack</a>
+            <div class="min-w-full bg-gray-200 h-[1px]"></div>
+            <a href="#"
+              class="w-full p-2 text-tiny text-gray-600 hover:bg-gray-200 active:bg-gray-100 focus:bg-blue-100">Log
+              out</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+  <div class="flex min-h-screen" x-data="{ open: true }">
+    <nav id="nav" class="bg-gray-100 border-r-2 relative min-w-fit">
+      <div class="absolute hover:bg-blue-300 w-[2px] min-h-screen -right-[2px] cursor-w-resize">
+        <span @click="open = ! open" :class="open ? 'rotate-180 ' : 'rotate-0'"
+          class="absolute flex items-center outline outline-2 outline-gray-200 bg-white rounded-full hover:bg-blue-300 hover:text-white w-4 h-4 -right-[8px] top-3 cursor-pointer"><svg
+            width="24" height="24" viewBox="0 0 24 24" role="presentation">
+            <path
+              d="M10.294 9.698a.988.988 0 010-1.407 1.01 1.01 0 011.419 0l2.965 2.94a1.09 1.09 0 010 1.548l-2.955 2.93a1.01 1.01 0 01-1.42 0 .988.988 0 010-1.407l2.318-2.297-2.327-2.307z"
+              fill="currentColor" fill-rule="evenodd"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="min-h-[80px] p-4 flex items-center">
+        <button id="hero"
+          class="w-6 h-6 bg-blue-400 rounded-sm hover:outline-blue-100 hover:outline-3 hover:outline">
+          <div class="font-bold text-[9px] text-white">PCT</div>
+        </button>
+        <div x-show="open" x-transition.duration.500ms>
+          <h2 class="text-sm font-semibold mx-2">Project v2 Collab Tribe</h2>
+          <h3 class="text-tiny mx-2 text-gray-900">Sofware Developement</h3>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <a href="#"
+          class="flex items-center space-x-2 group p-2 hover:bg-blue-200 active:bg-blue-100 focus:bg-blue-100 rounded-r-lg">
+          <span class="w-0.5 h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+          <span class="opacity-90">
+            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+              <path
+                d="M6 2h10a3 3 0 010 6H6a3 3 0 110-6zm0 2a1 1 0 100 2h10a1 1 0 000-2H6zm4 5h8a3 3 0 010 6h-8a3 3 0 010-6zm0 2a1 1 0 000 2h8a1 1 0 000-2h-8zm-4 5h6a3 3 0 010 6H6a3 3 0 010-6zm0 2a1 1 0 000 2h6a1 1 0 000-2H6z"
+                fill="currentColor" fill-rule="evenodd"></path>
+            </svg>
+          </span>
+          <p x-show="open" class="text-xs font-semibold">Roadmap</p>
+        </a>
+        <a href="#"
+          class="flex items-center space-x-2 group p-2 hover:bg-blue-200 active:bg-blue-100 focus:bg-blue-100 rounded-r-lg">
+          <span class="w-0.5 h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+          <span class="opacity-90">
+            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+              <g fill="currentColor">
+                <path
+                  d="M4 18h16.008C20 18 20 6 20 6H3.992C4 6 4 18 4 18zM2 5.994C2 4.893 2.898 4 3.99 4h16.02C21.108 4 22 4.895 22 5.994v12.012A1.997 1.997 0 0120.01 20H3.99A1.994 1.994 0 012 18.006V5.994z">
+                </path>
+                <path d="M8 6v12h2V6zm6 0v12h2V6z"></path>
+              </g>
+            </svg>
+          </span>
+          <p x-show="open" class="text-xs font-semibold">Backlog</p>
+        </a>
+        <a href="#"
+          class="flex items-center space-x-2 group p-2 hover:bg-blue-200 active:bg-blue-100 focus:bg-blue-100 rounded-r-lg">
+          <span class="w-0.5 h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+          <span class="opacity-90">
+            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+              <g fill="currentColor">
+                <path
+                  d="M4 18h16.008C20 18 20 6 20 6H3.992C4 6 4 18 4 18zM2 5.994C2 4.893 2.898 4 3.99 4h16.02C21.108 4 22 4.895 22 5.994v12.012A1.997 1.997 0 0120.01 20H3.99A1.994 1.994 0 012 18.006V5.994z">
+                </path>
+                <path d="M8 6v12h2V6zm6 0v12h2V6z"></path>
+              </g>
+            </svg>
+          </span>
+          <p x-show="open" class="text-xs font-semibold">Active sprints</p>
+        </a>
+        <a href="#"
+          class="flex items-center space-x-2 group p-2 hover:bg-blue-200 active:bg-blue-100 focus:bg-blue-100 rounded-r-lg">
+          <span class="w-0.5 h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+          <span class="opacity-90">
+            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+              <g fill="currentColor">
+                <path
+                  d="M21 17H4.995C4.448 17 4 16.548 4 15.991V6a1 1 0 10-2 0v9.991A3.004 3.004 0 004.995 19H21a1 1 0 000-2zm-3-8v3a1 1 0 002 0V8a1 1 0 00-1-1h-4a1 1 0 000 2h3z">
+                </path>
+                <path
+                  d="M13.293 13.707a1 1 0 001.414 0l4-4a1 1 0 10-1.414-1.414L14 11.586l-2.293-2.293a1 1 0 00-1.414 0l-4 4a1 1 0 001.414 1.414L11 11.414l2.293 2.293z">
+                </path>
+              </g>
+            </svg>
+          </span>
+          <p x-show="open" class="text-xs font-semibold">Reports</p>
+        </a>
+        <a href="#"
+          class="flex items-center space-x-2 group p-2 hover:bg-blue-200 active:bg-blue-100 focus:bg-blue-100 rounded-r-lg">
+          <span class="w-0.5 h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+          <span class="opacity-90">
+            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+              <g fill="currentColor" fill-rule="evenodd">
+                <path
+                  d="M5 12.991c0 .007 14.005.009 14.005.009C18.999 13 19 5.009 19 5.009 19 5.002 4.995 5 4.995 5 5.001 5 5 12.991 5 12.991zM3 5.01C3 3.899 3.893 3 4.995 3h14.01C20.107 3 21 3.902 21 5.009v7.982c0 1.11-.893 2.009-1.995 2.009H4.995A2.004 2.004 0 013 12.991V5.01zM19 19c-.005 1.105-.9 2-2.006 2H7.006A2.009 2.009 0 015 19h14zm1-3a2.002 2.002 0 01-1.994 2H5.994A2.003 2.003 0 014 16h16z"
+                  fill-rule="nonzero"></path>
+                <path
+                  d="M10.674 11.331c.36.36.941.36 1.3 0l2.758-2.763a.92.92 0 00-1.301-1.298l-2.108 2.11-.755-.754a.92.92 0 00-1.3 1.3l1.406 1.405z">
+                </path>
+              </g>
+            </svg>
+          </span>
+          <p x-show="open" class="text-xs font-semibold">Issue</p>
+        </a>
+        <a href="#"
+          class="flex items-center space-x-2 group p-2 hover:bg-blue-200 active:bg-blue-100 focus:bg-blue-100 rounded-r-lg">
+          <span class="w-0.5 h-5 group-active:bg-blue-600 group-focus:bg-blue-600"></span>
+          <span class="opacity-90">
+            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+              <g fill="currentColor" fill-rule="evenodd">
+                <path
+                  d="M5 17.991c0 .007 14.005.009 14.005.009-.006 0-.005-7.991-.005-7.991C19 10.002 4.995 10 4.995 10 5.001 10 5 17.991 5 17.991zM3 10.01C3 8.899 3.893 8 4.995 8h14.01C20.107 8 21 8.902 21 10.009v7.982c0 1.11-.893 2.009-1.995 2.009H4.995A2.004 2.004 0 013 17.991V10.01z">
+                </path>
+                <path
+                  d="M7 8.335c0-.002 2.002-.002 2.002-.002C9 8.333 9 6.665 9 6.665c0 .002-2.002.002-2.002.002C7 6.667 7 8.335 7 8.335zm-2-1.67C5 5.745 5.898 5 6.998 5h2.004C10.106 5 11 5.749 11 6.665v1.67C11 9.255 10.102 10 9.002 10H6.998C5.894 10 5 9.251 5 8.335v-1.67zm10 1.67c0-.002 2.002-.002 2.002-.002C17 8.333 17 6.665 17 6.665c0 .002-2.002.002-2.002.002.002 0 .002 1.668.002 1.668zm-2-1.67C13 5.745 13.898 5 14.998 5h2.004C18.106 5 19 5.749 19 6.665v1.67c0 .92-.898 1.665-1.998 1.665h-2.004C13.894 10 13 9.251 13 8.335v-1.67z">
+                </path>
+              </g>
+            </svg>
+          </span>
+          <p x-show="open" class="text-xs font-semibold">Components</p>
+        </a>
+      </div>
+    </nav>
+    <main class="w-full p-6">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet veniam tenetur expedita
+      quidem. Voluptatum culpa recusandae nam ex ea officiis debitis consequuntur, fugiat nesciunt
+      sequi impedit inventore, consequatur dolore minus.
+    </main>
+  </div>
+</body>
+
+</html>
